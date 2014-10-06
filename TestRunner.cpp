@@ -1,4 +1,7 @@
-#include "tests.h"
+#include <Arduino.h>
+#include "TestRunner.h"
+
+extern HardwareSerial Serial;
 
 // Test callback returns -1 if in progress, 0 if failed, 1 if passed
 void runTest(const char *name, long timeout, char (*test)(char))
