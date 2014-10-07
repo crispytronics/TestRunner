@@ -1,15 +1,21 @@
 #include <Arduino.h>
 #include "TestRunner.h"
 
+float _testRunnerValue;
+bool _testRunnerValueSet;
+
 extern HardwareSerial Serial;
 
 // Test callback returns -1 if in progress, 0 if failed, 1 if passed
 void runTest(const char *name, long timeout, char (*test)(char))
 {
    int result = -1;
-   Serial.print("{ name: \"");
+   Serial.print("{ \"action\": \"test-started\", name: \"");
    Serial.print(name);
-   Serial.print("\", ");
+   Serial.println("\" }");
+
+   // setup current val
+   _testRunnerValueSet = false;
 
    // setup test
    test(SETUP);
@@ -29,7 +35,7 @@ void runTest(const char *name, long timeout, char (*test)(char))
    test(TEARDOWN);
 
    // result
-   Serial.print("\"result\": ");
+   Serial.print("{ \"action\": \"test-finished\" \"result\": ");
    if(done - start > timeout || result == 0)
    {
       Serial.print("\"fail\", ");
@@ -40,5 +46,18 @@ void runTest(const char *name, long timeout, char (*test)(char))
    }
    Serial.print("\"duration\": ");
    Serial.print(done - start);
+   if(_testRunnerValueSet) {
+      Serial.print(", \"value\": ");
+      Serial.print(_testRunnerValue);
+   }
    Serial.println(" }");
+}
+
+void currentValue(float value) {
+   _testRunnerValueSet = true;
+   _testRunnerValue = value;
+   Serial.print("{ \"action\": \"current-value\", \"value\": ");
+   Serial.print(_testRunnerValue);
+   Serial.println(" }");
+   Serial.flush();
 }
