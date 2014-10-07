@@ -7,9 +7,9 @@ extern HardwareSerial Serial;
 void runTest(const char *name, long timeout, char (*test)(char))
 {
    int result = -1;
-   Serial.print("  \"");
+   Serial.print("{ name: \"");
    Serial.print(name);
-   Serial.print("\" : { ");
+   Serial.print("\", ");
 
    // setup test
    test(SETUP);
@@ -40,5 +40,5 @@ void runTest(const char *name, long timeout, char (*test)(char))
    }
    Serial.print("\"duration\": ");
    Serial.print(done - start);
-   Serial.println(" },");
+   Serial.println(" }");
 }
