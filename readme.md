@@ -14,18 +14,18 @@ Tells the Arduino to run the test suite.  An optional mode (integer) may be prov
 { "cmd": "run", "mode": OPTIONAL_MODE }
 ```
 
-### Acknowledge
-Tells the host that the command has been accepted.
+### Test Suite Started
+Tells the host that the test suite is running.
 
 ```
-{ "action": "ack" }
+{ "action": "test-suite-started" }
 ```
 
-### Error
-Tells the host that an error has occurred.
+### Test Suite Finished
+Tells the host that the test suite has finished running.
 
 ```
-{ "error": "ERROR_MESSAGE" }
+{ "action": "test-suite-finished" }
 ```
 
 ### Test Started
@@ -47,4 +47,11 @@ Tells the host that the test has finished.  If a current value was sent at any p
 
 ```
 { "action": "test-finished", "result": "PASS/FAIL", "duration": DURATION_IN_MILLISECONDS, "value": OPTIONAL_FINAL_VALUE }
+ ```
+ 
+### Error
+Tells the host that an error has occurred.
+
+```
+{ "error": "ERROR_MESSAGE" }
 ```
