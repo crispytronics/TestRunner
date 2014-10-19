@@ -27,7 +27,7 @@ USA
 #define MINUTES(x) (x * 60000)
 
 // Test callback returns -1 if in progress, 0 if failed, 1 if passed
-void runSuite(void (*suite)(void));
+void runSuite(const char *name, void (*suite)(int), int mode);
 void runTest(const char *name, long timeout, char (*test)(char));
 void currentValue(float value);
-int start();
+int run();

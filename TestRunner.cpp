@@ -27,11 +27,21 @@ bool _testRunnerValueSet;
 
 extern HardwareSerial Serial;
 
+void runSuite(const char *name, void (*suite)(int), int mode) {
+   Serial.print("{ \"action\": \"suite-started\", \"name\": \"");
+   Serial.print(name);
+   Serial.println("\" }");
+
+   suite(mode);
+
+   Serial.print("{ \"action\": \"suite-finished\" }");
+}
+
 // Test callback returns -1 if in progress, 0 if failed, 1 if passed
 void runTest(const char *name, long timeout, char (*test)(char))
 {
    int result = -1;
-   Serial.print("{ \"action\": \"test-started\", name: \"");
+   Serial.print("{ \"action\": \"test-started\", \"name\": \"");
    Serial.print(name);
    Serial.println("\" }");
 
@@ -56,7 +66,7 @@ void runTest(const char *name, long timeout, char (*test)(char))
    test(TEARDOWN);
 
    // result
-   Serial.print("{ \"action\": \"test-finished\" \"result\": ");
+   Serial.print("{ \"action\": \"test-finished\", \"result\": ");
    if(done - start > timeout || result == 0)
    {
       Serial.print("\"fail\", ");
@@ -84,7 +94,7 @@ void currentValue(float value) {
 }
 
 // returns -1 on error, mode on success, 0 if no mode provided
-int start() {
+int run() {
    Serial.print("$ ");   
 
    String cmd = String();
