@@ -82,3 +82,33 @@ void currentValue(float value) {
    Serial.println(" }");
    Serial.flush();
 }
+
+// returns -1 on error, mode on success, 0 if no mode provided
+int start() {
+   Serial.print("$ ");   
+
+   String cmd = String();
+   unsigned int index = 0;
+   while(true) {
+      char c;
+      if(Serial.available()) {
+         c = Serial.read();
+         if(c == 0x0d) {
+            Serial.println();
+            break;
+         }
+         else if(c == 0x7f) {
+            // do nothing
+         }
+         else {
+            Serial.print(c);
+            cmd += c;
+         }
+      }
+   }
+   Serial.println(cmd);
+   if(cmd.startsWith("start")) {
+      return cmd.substring(6).toInt();
+   }
+   return -1;
+}

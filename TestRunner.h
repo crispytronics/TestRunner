@@ -30,3 +30,4 @@ USA
 void runSuite(void (*suite)(void));
 void runTest(const char *name, long timeout, char (*test)(char));
 void currentValue(float value);
+int start();
