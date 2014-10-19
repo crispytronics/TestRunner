@@ -5,13 +5,13 @@
 ## Usage
 
 ## Protocol
-The test runner uses a simple, JSON protocol for communicating with the host.
+The test runner uses a simple, JSON protocol for communicating with the host. 
 
 ### Run Tests
-Tells the Arduino to run the test suite.  An optional mode (integer) may be provided which can be used to test different variants.
+Tells the Arduino to run the test suite.  An optional mode (integer) may be provided which can be used to test different variants. The command is terminated with a single newline character (i.e. 0x0d).
 
 ```
-{ "cmd": "run", "mode": OPTIONAL_MODE }
+run OPTIONAL_MODE
 ```
 
 ### Test Suite Started
