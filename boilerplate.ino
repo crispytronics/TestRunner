@@ -18,11 +18,16 @@ char test1(char state) {
       progress and to call it again if the test hasn't timed out.  It's encouraged to make 
       your tests as simple as possible and let the test runner do the work! */
    if(state == RUN) {
+      // The current value can be reported like this
       currentValue(i++);
       delay(250);
+      
       if(i < 3) {
+         // Test isn't finished yet
          return -1;
       }
+      
+      // Test passed
       return 1; 
    }
    
