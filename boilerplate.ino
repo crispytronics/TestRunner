@@ -42,7 +42,7 @@ void testSuite(int mode) {
  * SETUP
  *------------------------------------*/
 void setup() {
-  // Serial is needed by TestRunner, initialize it here... 
+  // Serial is needed by TestRunner, initialize it here 
   Serial.begin(9600);
 }
 
