@@ -117,8 +117,8 @@ int run() {
       }
    }
    Serial.println(cmd);
-   if(cmd.startsWith("start")) {
-      return cmd.substring(6).toInt();
+   if(cmd.startsWith("run")) {
+      return cmd.substring(4).toInt();
    }
    return -1;
 }
