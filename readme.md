@@ -2,7 +2,7 @@
 A library for running test cases on Arduino.
 
 ## Installation
-Download the library [here]() and follow the instructions [here](http://arduino.cc/en/Guide/Libraries) to install the library in the Arduino IDE.
+Download the library [here](https://github.com/crispytronics/TestRunner/archive/v1.0.0.zip) and follow the instructions [here](http://arduino.cc/en/Guide/Libraries) to install the library in the Arduino IDE.
 
 ## Usage
 See [boilerplate.ino](https://github.com/crispytronics/TestRunner/blob/master/boilerplate.ino) for example usage.
