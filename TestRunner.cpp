@@ -34,7 +34,7 @@ void runSuite(const char *name, void (*suite)(int), int mode) {
 
    suite(mode);
 
-   Serial.print("{ \"action\": \"suite-finished\" }");
+   Serial.println("{ \"action\": \"suite-finished\" }");
 }
 
 // Test callback returns -1 if in progress, 0 if failed, 1 if passed
