@@ -1,4 +1,5 @@
 # Arduino Test Runner
+A library for running test cases on Arduino.
 
 ## Installation
 Download the library [here]() and follow the instructions [here](http://arduino.cc/en/Guide/Libraries) to install the library in the Arduino IDE.
