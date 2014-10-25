@@ -1,8 +1,10 @@
 # Arduino Test Runner
 
 ## Installation
+Download the library [here]() and follow the instructions [here](http://arduino.cc/en/Guide/Libraries) to install the library in the Arduino IDE.
 
 ## Usage
+See [boilerplate.ino](https://github.com/crispytronics/TestRunner/blob/master/boilerplate.ino) for example usage.
 
 ## Protocol
 The test runner uses a simple, JSON protocol for communicating with the host. 
