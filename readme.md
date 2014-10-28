@@ -1,4 +1,6 @@
 # Arduino Test Runner
+[![wercker status](https://app.wercker.com/status/7ad473da876df82c915605888d7c96c2/s "wercker status")](https://app.wercker.com/project/bykey/7ad473da876df82c915605888d7c96c2)
+
 A library for running test cases on Arduino.
 
 ## Installation
