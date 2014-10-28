@@ -1,7 +1,4 @@
 box: krisbarrett/arduino@0.0.1
 build:
   steps:
-    - script:
-      name: make
-      code: |
-        make
+    - make
