@@ -34,7 +34,7 @@ void runSuite(const char *name, void (*suite)(int), int mode) {
 
    suite(mode);
 
-   Serial.print("{ \"action\": \"suite-finished\" }");
+   Serial.print("{ \"action\": \"suite-finished\" }\n");
 }
 
 // Test callback returns -1 if in progress, 0 if failed, 1 if passed
@@ -84,12 +84,14 @@ void runTest(const char *name, long timeout, char (*test)(char))
    Serial.println(" }");
 }
 
-void currentValue(float value) {
+void currentValue(float value, const char *units) {
    _testRunnerValueSet = true;
    _testRunnerValue = value;
    Serial.print("{ \"action\": \"current-value\", \"value\": ");
    Serial.print(_testRunnerValue);
-   Serial.println(" }");
+   Serial.print(", \"units\": \"");
+   Serial.print(units);
+   Serial.println("\" }");
    Serial.flush();
 }
 

@@ -29,5 +29,5 @@ USA
 // Test callback returns -1 if in progress, 0 if failed, 1 if passed
 void runSuite(const char *name, void (*suite)(int), int mode);
 void runTest(const char *name, long timeout, char (*test)(char));
-void currentValue(float value);
+void currentValue(float value, const char* units);
 int run();
